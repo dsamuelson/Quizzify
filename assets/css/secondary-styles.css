@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.score-block {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    justify-content: center;
+}
+
+.score-block a {
+    background-color: blue;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: larger;
+}
+
+.score-block a:hover {
+    background-color: rgb(50, 191, 238);
+}
+
+.score-block .score-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+}
+
+.score-block .score-list ol {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.score-block .score-list ol li {
+    margin: 5px;
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.score-block .score-list ol .score-item1 {
+    background-color: orange;
+    padding-left: 15px;
+}
+
+.score-block .score-list ol .score-item2 {
+    background-color: paleturquoise;
+    padding-left: 25px;
+}
+
+.delete-btn {
+    border: none;
+    background-color: rgb(1, 1, 182);
+    color: white;
+    border-radius: 5px;
+    padding: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+    margin: 2px 10px;
+}
+
+.delete-btn:hover {
+    background-color: green;
+    color: red;
+}
+
+ /* If no scores */
+
+ .score-list h2 {
+     margin-bottom: 50px;
+ }
