@@ -30,11 +30,9 @@ let updateScores = function(){
 
 let loadScores = function() {
     let savedScores = localStorage.getItem("score");
-    console.log(savedScores);
     if (!savedScores) {
         return false;
     } else {
-        console.log("here");
         let scoreListEl = document.createElement("ol");
         scoreListEl.id = "score-list";
         scoreListDivEl.appendChild(scoreListEl);
