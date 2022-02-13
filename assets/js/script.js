@@ -4,7 +4,7 @@ let mainContainer = document.querySelector("#quiz-container");
 let questionId = 0;
 let timerValue = document.getElementById("timer-value");
 var timeInterval;
-//let testInterval = setInterval(countDown, 1000);
+const highScores = [];
 
 // quiz questions in an array of objects
 
@@ -13,30 +13,44 @@ const quizQuestions = [
         question: "What is 1+1",
         answers: "2<>4<>6<>8",
         correct: "2"
-    },
-    {
-        question: "what is 2+2",
-        answers: "1<>4<>8<>10<>12",
-        correct: "4"
-    },
-    {
-        question: "what is 5+5",
-        answers: "4<>8<>10<>12",
-        correct: "10" 
     }
 ];
 
+// Game Over
+
+let gameOver = function(score) {
+    mainContainer.remove();
+    let mainScoreContEl = document.createElement("main");
+    mainScoreContEl.className = "game-over-cont";
+    document.body.appendChild(mainScoreContEl);
+    let scoreFormEl = document.createElement("form");
+    mainScoreContEl.appendChild(scoreFormEl);
+    let scoreFormLabelEl = document.createElement("label");
+    scoreFormLabelEl.setAttribute("for", "name");
+    scoreFormLabelEl.textContent = "Please Enter Your Name";
+    scoreFormEl.appendChild(scoreFormLabelEl);
+    let scoreFormInputEl = document.createElement("input");
+    scoreFormInputEl.type = "text";
+    scoreFormInputEl.className = "form-input"
+    scoreFormInputEl.name = "name";
+    scoreFormInputEl.id = "name";
+    scoreFormInputEl.setAttribute("placeholder", "Your Name");
+    scoreFormEl.appendChild(scoreFormInputEl);
+};
+
 // Timer function
 
-let countDown = function(currValue, timePenalty) {
-    let timeLeft = currValue - timePenalty;
+let countDown = function(timePenalty) {
+    let currTime = timerValue.textContent;
+    let timeLeft = currTime - timePenalty;
     timeInterval = setInterval(function() {
-        if (timeLeft !== 0){
+        if (timeLeft > 0){
         timerValue.textContent = timeLeft;
         timeLeft--;
         } else {
             timerValue.textContent = "TIMES UP!"
             clearInterval(timeInterval);
+            gameOver(0);
         }
     },1000);
 };
@@ -48,7 +62,7 @@ var quizHandler = function() {
     let introText = document.querySelector("#quiz-start-cont");
     if (introText){
         introText.remove();
-        countDown(60, 0);
+        countDown(0);
     }
     // Looks to see if there is already a defined question and answer set
     let answerContainer = document.querySelector("#quiz-answers-cont");
@@ -81,9 +95,8 @@ var quizHandler = function() {
                             quizHandler();
                         } else {
                             answerResult.textContent = "Incorrect";
-                            let currTime = timerValue.textContent;
                             clearInterval(timeInterval);
-                            countDown(currTime, 10);
+                            countDown(10);
                         }
                         answerContainerEl.appendChild(answerResult);
                     } else {
@@ -93,9 +106,8 @@ var quizHandler = function() {
                             quizHandler();
                         } else {
                             resultTextEl.textContent = "Incorrect";
-                            let currTime = timerValue.textContent;
                             clearInterval(timeInterval);
-                            countDown(currTime, 10);
+                            countDown(10);
                         }
                     }
                 });
@@ -108,8 +120,12 @@ var quizHandler = function() {
         }
         // what to do when there are no more questions in the array
     } else {
-        console.log("can't do that");
+        let score = timerValue.textContent;
+        clearInterval(timeInterval);
+        gameOver(score);
     }
 };
+
+
 
 startBtn.addEventListener("click", quizHandler);
