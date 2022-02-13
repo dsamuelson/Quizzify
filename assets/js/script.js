@@ -111,13 +111,27 @@ let countDown = function(timePenalty) {
     },1000);
 };
 
+// add randomness to arrays
+
+function randomIze(array) {
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+    return array;
+}
+
 //dynamically create questions based on the array quizQuestions and put answers in a form
 
 var quizHandler = function() {
+    
     // this will only ever be called once at the start of the quiz so it's the best place to start the timer
     let introText = document.querySelector("#quiz-start-cont");
     if (introText){
         introText.remove();
+        randomIze(quizQuestions);
         countDown(0);
     }
     // Looks to see if there is already a defined question and answer set
@@ -126,6 +140,7 @@ var quizHandler = function() {
     if (questionForm) {
         // takes the answers from the array object and splits it into a new array to form the answer choices
         let allAnswersList = questionForm.answers.split("<>");
+        randomIze(allAnswersList);
         if (!answerContainer) {
             let answerContainerEl = document.createElement("div");
             let answerListEl = document.createElement("ul");
