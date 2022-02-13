@@ -7,3 +7,97 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* styling the top-of-page content */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px 5px 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: #be2fde;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+header .timer-cont {
+    display: flex;
+    align-items: center;
+}
+
+.timer-cont h3 {
+    margin-right: 10px;
+}
+
+.timer-value {
+    padding-top: 1px;
+}
+
+/* Styling the quiz text*/
+
+.quiz-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.quiz-text-cont {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 150px;
+}
+
+.quiz-text-cont h1 {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.quiz-text-cont p {
+    width: 50%;
+    line-height: 1.5;
+    margin-bottom: 50px;
+}
+
+/* button styling */
+
+.btn {
+    background-color: rgb(71, 0, 102);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    margin: 0 auto 10px auto;
+}
+
+.btn:hover {
+    background-color: darkmagenta;
+    cursor: pointer;
+}
+
+.quiz-start-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.result-text {
+    width: 100%;
+    margin-top: 10px;
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    color: #999;
+    border-top: 2px #999 solid;
+    margin: 10px 30%;
+}

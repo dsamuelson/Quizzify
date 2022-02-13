@@ -1,0 +1,1 @@
+let topText = document.querySelector("#main-header");
