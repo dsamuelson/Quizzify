@@ -13,21 +13,46 @@ const quizQuestions = [
         question: "What is 1+1",
         answers: "2<>4<>6<>8",
         correct: "2"
+    },
+    {
+        question: "What is 2+2",
+        answers: "1<>2<>3<>4",
+        correct: "4"
     }
 ];
+
+// set up high score saving
+let userObjArr = [];
+
+let saveScore = function() {
+    localStorage.setItem("score", JSON.stringify(userObjArr));
+};
+
+// set up high score loading
+
+let loadScores = function() {
+    let savedScores = localStorage.getItem("score");
+    if (!savedScores) {
+        return false;
+    } else {
+        userObjArr = JSON.parse(savedScores);
+    } 
+};
 
 // Game Over
 
 let gameOver = function(score) {
+    // generate the game over screen
     mainContainer.remove();
     let mainScoreContEl = document.createElement("main");
     mainScoreContEl.className = "game-over-cont";
     document.body.appendChild(mainScoreContEl);
     let scoreFormEl = document.createElement("form");
+    scoreFormEl.setAttribute("method", "POST");
     mainScoreContEl.appendChild(scoreFormEl);
     let scoreFormLabelEl = document.createElement("label");
     scoreFormLabelEl.setAttribute("for", "name");
-    scoreFormLabelEl.textContent = "Please Enter Your Name";
+    scoreFormLabelEl.textContent = "Score: " + score;
     scoreFormEl.appendChild(scoreFormLabelEl);
     let scoreFormInputEl = document.createElement("input");
     scoreFormInputEl.type = "text";
@@ -36,6 +61,33 @@ let gameOver = function(score) {
     scoreFormInputEl.id = "name";
     scoreFormInputEl.setAttribute("placeholder", "Your Name");
     scoreFormEl.appendChild(scoreFormInputEl);
+    let scoreFormButtonEl = document.createElement("button");
+    scoreFormButtonEl.className = "submit-btn";
+    scoreFormButtonEl.id = "submit-hs";
+    scoreFormButtonEl.textContent = "Submit Score";
+    scoreFormEl.appendChild(scoreFormButtonEl);
+
+    // once button is pushed save the score to localstorage, then change the form to try again
+
+    scoreFormButtonEl.addEventListener("click", function(event){
+        event.preventDefault();
+        var user = {
+            name: scoreFormInputEl.value.trim(),
+            score: score
+        };
+        loadScores();
+        userObjArr.push(user);
+        saveScore();
+        let retryBtnEl = document.createElement("button");
+        scoreFormInputEl.readOnly = true;
+        retryBtnEl.textContent = "Try Again?";
+        retryBtnEl.className = "submit-btn";
+        retryBtnEl.addEventListener("click", function(event){
+            location.reload();
+        });
+        scoreFormEl.appendChild(retryBtnEl);
+        scoreFormButtonEl.remove();
+    });
 };
 
 // Timer function
