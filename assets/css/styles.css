@@ -42,11 +42,12 @@ header .timer-cont {
 
 .quiz-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
 .quiz-text-cont {
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -58,12 +59,30 @@ header .timer-cont {
 .quiz-text-cont h1 {
     width: 100%;
     margin-bottom: 15px;
+    font-size: 45px;
 }
 
-.quiz-text-cont p {
+.quiz-start-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+
+.quiz-start-cont p {
     width: 50%;
     line-height: 1.5;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    
+}
+
+.start-button-cont {
+    width: 100%;
 }
 
 /* button styling */
@@ -73,7 +92,7 @@ header .timer-cont {
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 30px;
     border-radius: 15px;
     margin: 0 auto 10px auto;
 }
@@ -81,13 +100,6 @@ header .timer-cont {
 .btn:hover {
     background-color: darkmagenta;
     cursor: pointer;
-}
-
-.quiz-start-cont {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 100%;
 }
 
 .result-text {
@@ -100,4 +112,18 @@ header .timer-cont {
     color: #999;
     border-top: 2px #999 solid;
     margin: 10px 30%;
+}
+.quiz-answers-cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5px;
+    width: 100%;
+}
+.quiz-answers-cont ul {
+    margin: 0 auto 10px 27%;
+}
+
+.quiz-answers-list li {
+    list-style-type: none;
 }
