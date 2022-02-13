@@ -57,7 +57,7 @@ header .timer-cont {
 }
 
 .quiz-text-cont h1 {
-    width: 100%;
+    width: 75%;
     margin-bottom: 15px;
     font-size: 45px;
 }
@@ -95,11 +95,17 @@ header .timer-cont {
     font-size: 30px;
     border-radius: 15px;
     margin: 0 auto 10px auto;
+    width: 100%;
+    text-align: left;
 }
 
 .btn:hover {
     background-color: darkmagenta;
     cursor: pointer;
+}
+
+.start-button-cont .start-btn{
+    width: auto;
 }
 
 .result-text {

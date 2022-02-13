@@ -10,7 +10,7 @@ const highScores = [];
 
 const quizQuestions = [
     {
-        question: "What is i in the following declaration?\n 'array[i]'",
+        question: "What is 'i' in the following declaration?\n 'array[i]'",
         answers: "the index value<>an internal reference to itself<>the start of a for-loop<>nothing",
         correct: "the index value"
     },
