@@ -10,14 +10,29 @@ const highScores = [];
 
 const quizQuestions = [
     {
-        question: "What is 1+1",
-        answers: "2<>4<>6<>8",
-        correct: "2"
+        question: "What is i in the following declaration?\n 'array[i]'",
+        answers: "the index value<>an internal reference to itself<>the start of a for-loop<>nothing",
+        correct: "the index value"
     },
     {
-        question: "What is 2+2",
-        answers: "1<>2<>3<>4",
-        correct: "4"
+        question: "What is a for-loop's normal syntax",
+        answers: "for ( i = 0 ; i < array.length; i++){}<>for ( var i = 0 ; i < array.length; i++){}<>for ( i++ ){}<>for(){}",
+        correct: "for ( var i = 0 ; i < array.length; i++){}"
+    },
+    {
+        question: "What does a while loop do?",
+        answers: "answers questions while you wait<>works while the declaration is false<>works while a declaration is true<>runs a function indefinitely",
+        correct: "works while a declaration is true"
+    },
+    {
+        question: "How can you declare a variable?",
+        answers: "var i =<>let i =<>const i =<>all of these",
+        correct: "all of these"
+    },
+    {
+        question: "How do you store an item to localStorage?",
+        answers: "localStorage.setItem(var)<>localStorage.setItem('key', 'value')<>setItem.localStorage(var)<>setItem.localStorage('key', 'value')",
+        correct: "localStorage.setItem('key', 'value')"
     }
 ];
 
@@ -59,7 +74,7 @@ let gameOver = function(score) {
     scoreFormInputEl.className = "form-input"
     scoreFormInputEl.name = "name";
     scoreFormInputEl.id = "name";
-    scoreFormInputEl.setAttribute("placeholder", "Your Name");
+    scoreFormInputEl.setAttribute("placeholder", "Your initials");
     scoreFormEl.appendChild(scoreFormInputEl);
     let scoreFormButtonEl = document.createElement("button");
     scoreFormButtonEl.className = "submit-btn";
@@ -71,8 +86,9 @@ let gameOver = function(score) {
 
     scoreFormButtonEl.addEventListener("click", function(event){
         event.preventDefault();
+        let userName = scoreFormInputEl.value.trim();
         var user = {
-            name: scoreFormInputEl.value.trim(),
+            name: userName.substring(0, 3),
             score: score
         };
         loadScores();

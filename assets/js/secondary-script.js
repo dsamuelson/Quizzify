@@ -1,4 +1,5 @@
 let scoreListDivEl = document.querySelector("#score-list-div");
+let clearAllButtonEl = document.querySelector("#clear-all");
 var scoreListEl;
 let userObjArr = [];
 
@@ -61,10 +62,24 @@ let loadScores = function() {
 
 loadScores();
 
+clearAllButtonEl.addEventListener("click", function(){
+    let toRemoveEls = document.querySelectorAll("li");
+    let confirmClear = confirm("Do you really want to clear all your scores?");
+    if (confirmClear){
+        for (let i = 0 ; i < toRemoveEls.length ; i++){
+            toRemoveEls[i].remove();
+            updateScores();
+        }
+    } else {
+        return false;
+    }   
+});
+
 // if no scores display text
 
 if (!userObjArr[0]){
     // will allow a deleted list to show the same text
+    clearAllButtonEl.remove();
     let isListEmptied = document.querySelector("#score-list");
     if (isListEmptied){
         isListEmptied.remove();

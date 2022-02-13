@@ -25,7 +25,9 @@ header h1 {
     text-decoration: none;
     padding: 10px;
     margin-top: 15px;
+    margin-bottom: 10px;
     font-size: larger;
+    display: inline;
 }
 
 .score-block a:hover {
