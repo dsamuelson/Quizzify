@@ -95,6 +95,10 @@ let gameOver = function(score) {
 let countDown = function(timePenalty) {
     let currTime = timerValue.textContent;
     let timeLeft = currTime - timePenalty;
+    if (timeLeft > 0){
+        timerValue.textContent = timeLeft;
+        timeLeft--;
+        }
     timeInterval = setInterval(function() {
         if (timeLeft > 0){
         timerValue.textContent = timeLeft;
