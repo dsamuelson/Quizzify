@@ -92,3 +92,24 @@ header h1 {
  .score-list h2 {
      margin-bottom: 50px;
  }
+
+ @media screen and (max-width: 930px) {
+    .score-block .score-list ol {
+        width: 90%;
+    }
+
+    .score-block .score-list ol li {
+        margin: 5px;
+        width: 100%;
+        font-size: 30px;
+    }
+
+    .score-block a {
+        width: 90%;
+        text-align: center;
+    }
+
+    .delete-btn {
+        padding: 10px
+    }
+ }
