@@ -192,4 +192,13 @@ header .timer-cont {
     .btn:hover {
         background-color: rgb(71, 0, 102);
     }
+    
+    .quiz-text-cont {
+        margin-top: 20px;
+    }
+
+    .game-over-cont {
+        margin-top: 30px;
+        height: auto;
+    }
 }
