@@ -190,6 +190,6 @@ header .timer-cont {
         margin: 0 auto;
     }
     .btn:hover {
-        background-color: inherit;
+        background-color: rgb(71, 0, 102);
     }
 }
