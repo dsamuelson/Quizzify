@@ -179,3 +179,17 @@ header .timer-cont {
 .game-over-cont form .submit-btn:hover {
     background-color: rgb(42, 9, 230);
 }
+
+@media screen and (max-width: 930px) {
+    .quiz-start-cont p {
+        width: 100%;
+        font-size: 25px;
+        
+    }
+    .quiz-answers-cont .quiz-answers-list {
+        margin: 0 auto;
+    }
+    .btn:hover {
+        background-color: inherit;
+    }
+}
