@@ -63,7 +63,6 @@ let gameOver = function(score) {
     mainScoreContEl.className = "game-over-cont";
     document.body.appendChild(mainScoreContEl);
     let scoreFormEl = document.createElement("form");
-    scoreFormEl.setAttribute("method", "POST");
     mainScoreContEl.appendChild(scoreFormEl);
     let scoreFormLabelEl = document.createElement("label");
     scoreFormLabelEl.setAttribute("for", "name");
